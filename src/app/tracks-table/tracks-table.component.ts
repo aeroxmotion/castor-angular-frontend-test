@@ -1,5 +1,6 @@
+import { Router } from '@angular/router';
+import { Component, Input } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { type SpotifyTrack } from '../spotify-client.service';
 import { FormatSpotifyArtistsPipe } from '../format-spotify-artists.pipe';
@@ -16,9 +17,9 @@ export class TracksTableComponent {
 
   @Input() tracks: SpotifyTrack[] = []
 
-  @Output() trackClick = new EventEmitter<SpotifyTrack>()
+  constructor(private $router: Router) {}
 
-  emitTrackClick(track: SpotifyTrack) {
-    this.trackClick.emit(track)
+  onTrackClick(track: SpotifyTrack) {
+    this.$router.navigate(['/track', track.id])
   }
 }

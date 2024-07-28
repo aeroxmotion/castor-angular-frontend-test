@@ -1,0 +1,36 @@
+@let trackDetail = trackDetailPromise | async;
+
+<button mat-button>
+  <mat-icon fontIcon="arrow_back_ios"></mat-icon>
+  Regresar
+</button>
+
+<main class="container">
+  @if (trackDetailError) {
+    <p class="error">Ocurrió un error al cargar la canción: <strong>{{ trackDetailError }}</strong></p>
+  } @else if (!trackDetail) {
+    <mat-spinner [diameter]="30"></mat-spinner>
+  } @else {
+    <img
+      [src]="trackDetail.album.images[0].url"
+      [height]="300"
+      [width]="300" />
+
+    <div>
+      <h1>{{ trackDetail.name }}</h1>
+
+      <p><strong>Artistas -</strong> {{ trackDetail.artists | formatSpotifyArtists }}</p>
+      <p><strong>Álbum -</strong> {{ trackDetail.album.name }}</p>
+
+      <p>© {{ trackDetail.album.release_date.split('-')[0] }}</p>
+
+      <iframe
+        [width]="400"
+        [height]="80"
+        allow="encrypted-media"
+        title="Spotify Web Player"
+        [src]="$sanitizer.bypassSecurityTrustResourceUrl('https://open.spotify.com/embed/track/' + trackID)">
+      </iframe>
+    </div>
+  }
+</main>

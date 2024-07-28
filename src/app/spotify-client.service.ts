@@ -21,6 +21,12 @@ export class SpotifyClientService {
       }),
     )
   }
+
+  getTrack(trackID: SpotifyID)  {
+    return lastValueFrom(
+      this.$http.get<SpotifyTrack>(`${environment.SPOTIFY_HTTP_API_BASE_URL}/tracks/${encodeURIComponent(trackID)}`),
+    )
+  }
 }
 
 export type SpotifyID = string;

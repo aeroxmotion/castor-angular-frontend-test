@@ -3,6 +3,7 @@ import { type Route, type Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { spotifyAuthGuard } from './spotify-auth.guard';
 import { LoginComponent } from './login/login.component';
+import { TrackDetailComponent } from './track-detail/track-detail.component';
 import { AuthCallbackComponent } from './auth-callback/auth-callback.component';
 
 export const routes: Routes = [
@@ -21,6 +22,11 @@ export const routes: Routes = [
     component: AuthCallbackComponent,
     ...defineAuthRoute(false),
   },
+  {
+    path: 'track/:id',
+    component: TrackDetailComponent,
+    ...defineAuthRoute(true),
+  }
 ];
 
 function defineAuthRoute(isPrivate: boolean): Partial<Route> {

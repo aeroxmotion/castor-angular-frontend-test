@@ -1,0 +1,33 @@
+:host {
+  display: block;
+  padding-top: 1rem;
+}
+
+.error {
+  color: #fff;
+}
+
+.container {
+  display: flex;
+  column-gap: 3rem;
+
+  padding-top: 2rem;
+}
+
+h1 {
+  margin-bottom: 1rem;
+
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+p {
+  color: #ddd;
+}
+
+iframe {
+  margin-top: 1rem;
+  border: 0;
+}

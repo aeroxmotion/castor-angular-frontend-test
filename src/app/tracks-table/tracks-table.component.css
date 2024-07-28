@@ -2,3 +2,8 @@
   display: block;
   overflow: auto;
 }
+
+tr[mat-row]:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
