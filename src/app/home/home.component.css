@@ -1,0 +1,24 @@
+:host {
+  display: grid;
+  grid-template-rows: auto 1fr;
+
+  max-height: 100vh;
+  padding-top: 3rem;
+}
+
+.search-form {
+  display: flex;
+  column-gap: 2rem;
+}
+
+.query-field {
+  flex: 1;
+}
+
+.type-field {
+
+}
+
+.submit-btn {
+  margin-top: .5rem;
+}
