@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { type Route, type Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { spotifyAuthGuard } from './spotify-auth.guard';
@@ -9,19 +9,23 @@ export const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    data: { isPrivate: true },
-    canActivate: [spotifyAuthGuard],
+    ...defineAuthRoute(true),
   },
   {
     path: 'login',
     component: LoginComponent,
-    data: { isPrivate: false },
-    canActivate: [spotifyAuthGuard],
+    ...defineAuthRoute(false),
   },
   {
     path: 'auth-callback',
-    data: { isPrivate: false },
     component: AuthCallbackComponent,
-    canActivate: [spotifyAuthGuard],
+    ...defineAuthRoute(false),
   },
 ];
+
+function defineAuthRoute(isPrivate: boolean): Partial<Route> {
+  return {
+    data: { isPrivate },
+    canActivate: [spotifyAuthGuard],
+  }
+}
