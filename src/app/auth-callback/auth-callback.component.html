@@ -1,0 +1,7 @@
+@if (authenticating) {
+  <p>Autenticando...</p>
+
+  <mat-spinner [diameter]="35"></mat-spinner>
+} @else {
+  <p>Ocurrió un error: <strong>{{ authenticationError }}</strong></p>
+}
