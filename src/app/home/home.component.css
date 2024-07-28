@@ -22,3 +22,8 @@
 .submit-btn {
   margin-top: .5rem;
 }
+
+.search-error {
+  color: #fff;
+  text-align: center;
+}

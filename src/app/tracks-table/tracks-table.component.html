@@ -1,5 +1,5 @@
 @if (!tracks.length) {
-  <p>No se han encontrado canciones.</p>
+  <p class="empty-text">No se han encontrado canciones.</p>
 } @else {
   <table mat-table [dataSource]="tracks">
     <ng-container matColumnDef="name">

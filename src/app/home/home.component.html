@@ -18,8 +18,8 @@
   <button
     mat-flat-button
     class="submit-btn"
-    [disabled]="searchForm.invalid || !searchResult">
-    @if (searchResult) {
+    [disabled]="searchForm.invalid || (!searchResult && !searchError)">
+    @if (searchResult || searchError) {
       Buscar
     } @else {
       <mat-spinner [diameter]="20"></mat-spinner>
@@ -27,7 +27,11 @@
   </button>
 </form>
 
-@if (!searchResult) {
+@if (searchError) {
+  <p class="search-error">
+    Ocurrió un error al realizar la búsqueda: <strong>{{ searchError }}</strong>
+  </p>
+} @else if (!searchResult) {
   <mat-spinner [diameter]="30"></mat-spinner>
 } @else {
   @switch (selectedSearchType.value) {

@@ -34,6 +34,7 @@ export class HomeComponent {
     },
   ]
 
+  searchError = ''
   searchForm: FormGroup
 
   searchPromise: Promise<GetSpotifySearchResponse> = Promise.resolve({
@@ -54,9 +55,15 @@ export class HomeComponent {
   onFormSubmit() {
     const { value } = this.searchForm
 
+    this.searchError = ''
+
     this.searchPromise = this.$spotifyClient.search({
       q: value.query,
       type: [value.type],
+    })
+
+    this.searchPromise.catch((error) => {
+      this.searchError = String(error)
     })
   }
 }
