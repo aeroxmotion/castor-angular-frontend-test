@@ -1,9 +1,9 @@
 @let trackDetail = trackDetailPromise | async;
 
-<button mat-button>
+<a mat-button routerLink="/">
   <mat-icon fontIcon="arrow_back_ios"></mat-icon>
   Regresar
-</button>
+</a>
 
 <main class="container">
   @if (trackDetailError) {

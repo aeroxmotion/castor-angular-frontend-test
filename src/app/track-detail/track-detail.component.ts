@@ -1,8 +1,8 @@
 import { AsyncPipe } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
 import { Component, type OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { FormatSpotifyArtistsPipe } from '../format-spotify-artists.pipe';
@@ -12,7 +12,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'app-track-detail',
   standalone: true,
-  imports: [MatButtonModule, MatIconModule, MatProgressSpinnerModule, AsyncPipe, FormatSpotifyArtistsPipe],
+  imports: [MatButtonModule, MatIconModule, MatProgressSpinnerModule, AsyncPipe, FormatSpotifyArtistsPipe, RouterModule],
   templateUrl: './track-detail.component.html',
   styleUrl: './track-detail.component.css'
 })
