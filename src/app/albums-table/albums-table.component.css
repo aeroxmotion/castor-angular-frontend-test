@@ -1,0 +1,13 @@
+:host {
+  display: block;
+  overflow: auto;
+}
+
+tr[mat-row]:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.album-image {
+  border-radius: 100%;
+}

@@ -15,3 +15,7 @@ body {
   color: #eee;
   text-align: center;
 }
+
+.text-right {
+  text-align: right !important;
+}

@@ -17,9 +17,7 @@ export class ArtistsTableComponent {
 
   @Input() artists: SpotifyArtist[] = []
 
-  constructor(private $router: Router) {
-    console.log(this.artists)
-  }
+  constructor(private $router: Router) {}
 
   onArtistClick(artist: SpotifyArtist) {
     this.$router.navigate(['/artist', artist.id])

@@ -10,11 +10,12 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { TracksTableComponent } from '../tracks-table/tracks-table.component';
 import { ArtistsTableComponent } from "../artists-table/artists-table.component";
 import { GetSpotifySearchResponse, SpotifyClientService, SpotifySearchType } from '../spotify-client.service';
+import { AlbumsTableComponent } from "../albums-table/albums-table.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ReactiveFormsModule, MatButton, MatInputModule, MatSelectModule, MatProgressSpinnerModule, TracksTableComponent, AsyncPipe, ArtistsTableComponent, MatTabsModule],
+  imports: [ReactiveFormsModule, MatButton, MatInputModule, MatSelectModule, MatProgressSpinnerModule, TracksTableComponent, AsyncPipe, ArtistsTableComponent, MatTabsModule, AlbumsTableComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

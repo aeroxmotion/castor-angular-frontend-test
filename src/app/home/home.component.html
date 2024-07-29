@@ -32,5 +32,9 @@
     <mat-tab label="Artistas">
       <app-artists-table [artists]="searchResult.artists.items"></app-artists-table>
     </mat-tab>
+
+    <mat-tab label="Álbumes">
+      <app-albums-table [albums]="searchResult.albums.items"></app-albums-table>
+    </mat-tab>
   </mat-tab-group>
 }
