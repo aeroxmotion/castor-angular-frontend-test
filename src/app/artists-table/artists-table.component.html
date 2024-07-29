@@ -1,0 +1,35 @@
+@if (!artists.length) {
+  <p class="empty-text">No se han encontrado artistas.</p>
+} @else {
+  <table mat-table [dataSource]="artists">
+    <ng-container matColumnDef="avatar">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let artist">
+        <img class="artist-avatar" [src]="artist.images[0]?.url" [width]="25" [height]="25" />
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let artist">{{ artist.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="genres">
+      <th mat-header-cell *matHeaderCellDef>Géneros</th>
+      <td mat-cell *matCellDef="let artist">{{ artist.genres.join(', ') }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="followers">
+      <th mat-header-cell *matHeaderCellDef>Seguidores</th>
+      <td mat-cell *matCellDef="let track">{{ track.followers.total | number:undefined:'es' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="popularity">
+      <th mat-header-cell *matHeaderCellDef>Popularidad</th>
+      <td mat-cell *matCellDef="let track">{{ track.popularity }}%</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnsToDisplay;" (click)="onArtistClick(row)"></tr>
+  </table>
+}

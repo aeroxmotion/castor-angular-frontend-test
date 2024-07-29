@@ -5,16 +5,6 @@
     <input matInput formControlName="query" placeholder="Busca una canción, artista o álbum" />
   </mat-form-field>
 
-  <mat-form-field class="type-field">
-    <mat-select formControlName="type" #selectedSearchType>
-      @for (searchType of searchTypes; track searchType) {
-        <mat-option [value]="searchType.value">
-          {{ searchType.label }}
-        </mat-option>
-      }
-    </mat-select>
-  </mat-form-field>
-
   <button
     mat-flat-button
     class="submit-btn"
@@ -34,19 +24,13 @@
 } @else if (!searchResult) {
   <mat-spinner [diameter]="30"></mat-spinner>
 } @else {
-  @switch (selectedSearchType.value) {
-    @case (searchType.Track) {
-      <app-tracks-table
-        [tracks]="searchResult.tracks.items"
-        (trackClick)="$event"></app-tracks-table>
-    }
+  <mat-tab-group>
+    <mat-tab label="Canciones">
+      <app-tracks-table [tracks]="searchResult.tracks.items"></app-tracks-table>
+    </mat-tab>
 
-    @case (searchType.Artist) {
-      <p>Artista</p>
-    }
-
-    @case (searchType.Album) {
-      <p>Álbum</p>
-    }
-  }
+    <mat-tab label="Artistas">
+      <app-artists-table [artists]="searchResult.artists.items"></app-artists-table>
+    </mat-tab>
+  </mat-tab-group>
 }
