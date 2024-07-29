@@ -33,6 +33,12 @@ export class SpotifyClientService {
       this.$http.get<SpotifyArtist>(`${environment.SPOTIFY_HTTP_API_BASE_URL}/artists/${encodeURIComponent(artistID)}`),
     )
   }
+
+  getAlbum(albumID: SpotifyID)  {
+    return lastValueFrom(
+      this.$http.get<SpotifyAlbum>(`${environment.SPOTIFY_HTTP_API_BASE_URL}/albums/${encodeURIComponent(albumID)}`),
+    )
+  }
 }
 
 export type SpotifyID = string;

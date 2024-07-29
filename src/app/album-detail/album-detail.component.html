@@ -1,1 +1,27 @@
-<p>album-detail works!</p>
+@let albumDetail = albumDetailPromise | async;
+
+<a mat-button routerLink="/">
+  <mat-icon fontIcon="arrow_back_ios"></mat-icon>
+  Regresar
+</a>
+
+<main class="container">
+  @if (albumDetailError) {
+    <p class="error">Ocurrió un error al cargar la información del álbum: <strong>{{ albumDetailError }}</strong></p>
+  } @else if (!albumDetail) {
+    <mat-spinner [diameter]="30"></mat-spinner>
+  } @else {
+    <img
+      [src]="albumDetail.images[0].url"
+      [height]="300"
+      [width]="300" />
+
+    <div>
+      <h1>{{ albumDetail.name }}</h1>
+
+      <p><strong>Artistas -</strong> {{ albumDetail.artists | formatSpotifyArtists }}</p>
+
+      <p>© {{ albumDetail.release_date.split('-')[0] }}</p>
+    </div>
+  }
+</main>
