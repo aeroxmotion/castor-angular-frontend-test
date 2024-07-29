@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component, Input } from '@angular/core';
+import { Component, Input, signal } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 
 import { type SpotifyAlbum } from '../spotify-client.service';

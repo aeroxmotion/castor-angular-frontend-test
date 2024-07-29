@@ -4,7 +4,9 @@ import { HomeComponent } from './home/home.component';
 import { spotifyAuthGuard } from './spotify-auth.guard';
 import { LoginComponent } from './login/login.component';
 import { TrackDetailComponent } from './track-detail/track-detail.component';
+import { AlbumDetailComponent } from './album-detail/album-detail.component';
 import { AuthCallbackComponent } from './auth-callback/auth-callback.component';
+import { ArtistDetailComponent } from './artist-detail/artist-detail.component';
 
 export const routes: Routes = [
   {
@@ -26,7 +28,17 @@ export const routes: Routes = [
     path: 'track/:id',
     component: TrackDetailComponent,
     ...defineAuthRoute(true),
-  }
+  },
+  {
+    path: 'artist/:id',
+    component: ArtistDetailComponent,
+    ...defineAuthRoute(true),
+  },
+  {
+    path: 'album/:id',
+    component: AlbumDetailComponent,
+    ...defineAuthRoute(true),
+  },
 ];
 
 function defineAuthRoute(isPrivate: boolean): Partial<Route> {
